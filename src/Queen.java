@@ -20,13 +20,13 @@ public class Queen extends Piece
     }
 
     //if moved diagonal return true;
-    if(this.movingDiagonal(board, dst))
+    if(this.pos.isMoveDiagonal(dst))
     {
-        return true;
+        return movingDiagonal(board, dst);
     }
 
     //if moved striaght return true;
-    return this.movingStraight(board, dst);
+    return movingStraight(board, dst);
 
 
 
@@ -56,7 +56,7 @@ public class Queen extends Piece
 
 
     //checks if possible to move diagonal up, left without going over someone;
-    private boolean diaUpLeft(Position dst, Board board)
+    private boolean diaUpLeft(Board board, Position dst)
     {
         for(int i =  1 ; i <Math.abs(dst.getCol()-this.pos.getCol()) -1; i++)
         {
@@ -68,7 +68,7 @@ public class Queen extends Piece
     }
 
     //checks if possible to move diagonal down, left without going over someone;
-    private boolean diaDownLeft(Position dst, Board board)
+    private boolean diaDownLeft(Board board, Position dst)
     {
         for(int i =  1 ; i < Math.abs(dst.getCol()-this.pos.getCol()) -1; i++)
         {
@@ -79,7 +79,7 @@ public class Queen extends Piece
     }
 
     //checks if possible to move diagonal down, right without going over someone;
-    private boolean diaDownRight(Position dst, Board board)
+    private boolean diaDownRight(Board board, Position dst)
     {
         for(int i = 0 ; i < Math.abs(dst.getCol()-this.pos.getCol()); i++)
         {
@@ -90,7 +90,7 @@ public class Queen extends Piece
     }
 
     //checks if possible to move diagonal up, right without going over someone;
-    private boolean diaUpRight(Position dst, Board board)
+    private boolean diaUpRight(Board board, Position dst)
     {
 
         for(int i=1;i<Math.abs(dst.getCol()-this.pos.getCol());i++)
@@ -161,26 +161,26 @@ public class Queen extends Piece
         // Up and Right
         if(this.pos.isMoveRight(dst) && this.pos.isMoveUp(dst))
         {
-            diaDownLeft(dst, board);
+            return diaDownLeft(board, dst);
         }
 
         // Up and Left
         if(this.pos.isMoveLeft(dst) && this.pos.isMoveUp(dst))
         {
-            return diaUpLeft(dst, board);
+            return diaUpLeft(board, dst);
         }
 
 
         // Down and left
         if(this.pos.isMoveRight(dst) && this.pos.isMoveDown(dst))
         {
-            return diaUpRight(dst, board);
+            return diaUpRight(board, dst);
         }
 
         // Down and Right
         if(this.pos.isMoveRight(dst) && this.pos.isMoveDown(dst))
         {
-            return diaDownRight(dst, board);
+            return diaDownRight(board, dst);
         }
         return false;
 
