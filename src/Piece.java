@@ -7,6 +7,12 @@ public abstract class Piece
 
 // MAJOR FLAW: PIECES NEED TO CHECK IF WHEN THEY MOVE THEY DONT EXPOSE THE KING
 // (COULD BE IMPLEMENTED IN PIECE OR BOARD)
+
+//FORGOT EN PASSANT
+
+// CASTLING
+
+
     protected abstract boolean isValid(Board board, Position dst); // can it move there?
 
     // general purpous constructor

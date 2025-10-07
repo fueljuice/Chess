@@ -28,16 +28,25 @@ public class King extends Piece
         return true;
     }
 
-    private boolean isDangerDiagnoul(Board board, Position dst)
+    private boolean isSafeDiagnoul(Board board, Position dst)
     {
 
         return true;
     }
 
-    private boolean isDangerStraight(Board board, Position dst)
+    private boolean iSafeStraight(Board board, Position dst)
     {
+        Piece cur;
+        for(int i = 1; i < Math.abs(this.pos.getCol() - dst.getCol()) - 1 ; i++)
+        {
+            cur = board.getBoard(new Position(this.pos.getCol(), this.pos.getRow()));
+            if(board.getBoard(new Position(this.pos.getCol(), this.pos.getRow())) != null)
+            {
+                if(cur.isValid(board, this.pos))
+                    return false;
 
-
+            }
+        }
         return true;
     }
 
