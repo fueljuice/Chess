@@ -201,7 +201,6 @@ public class Queen extends Piece
             else
             {
                 return checkLeft(board, dst);
-
             }
 
         }

@@ -2,7 +2,11 @@ public abstract class Piece
 {
     protected boolean color; // שחור זה FALSE
     protected Position pos;
+// MAJOR FLAW IN ALL THE PIECES: DID NOT CHECK IF THE PIECE EAT THE SAME COLOR AS ITSELF
 
+
+// MAJOR FLAW: PIECES NEED TO CHECK IF WHEN THEY MOVE THEY DONT EXPOSE THE KING
+// (COULD BE IMPLEMENTED IN PIECE OR BOARD)
     protected abstract boolean isValid(Board board, Position dst); // can it move there?
 
     // general purpous constructor
@@ -16,7 +20,8 @@ public abstract class Piece
     protected boolean generalCheck(Position dst)
     {
         if (dst.isOutBound())
-        {return false;
+        {
+            return false;
         }
 
         return this.pos.didMove(dst);
