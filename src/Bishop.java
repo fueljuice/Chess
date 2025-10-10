@@ -6,20 +6,22 @@ public class Bishop extends Piece
     }
 
     @Override
+    public String getTitle()
+    {
+        return "Bishop";
+    }
+
+    @Override
     public boolean isValid(Board board, Position dst)
     {
-        if(!generalCheck(dst))
+        if(!generalCheck(board, dst))
             return false;
 
-        if(!this.pos.didMove(dst))
-        {
-            return false;
 
-        }
 
         // isDiagonal?
-            if(!this.pos.isMoveDiagonal(dst))
-                return false;
+        if(!this.pos.isMoveDiagonal(dst))
+            return false;
 
         // Upper left diagonal
         if(this.pos.isMoveLeft(dst) && this.pos.isMoveUp(dst))

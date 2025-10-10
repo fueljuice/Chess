@@ -6,12 +6,18 @@ public class Rook extends Piece
 
     }
 
+    @Override
+    public String getTitle()
+    {
+        return "Rook";
+    }
+
 
 
     @Override
     public boolean isValid(Board board, Position dst)
     {
-        if(!generalCheck(dst))
+        if(!generalCheck(board, dst))
             return false;
 
 

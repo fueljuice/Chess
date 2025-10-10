@@ -1,7 +1,8 @@
 public class Board
 {
+    // TEMPORARY WHEN KING MOVES DELETE KING BEFORE CHECKING FOR A CHECK
     private final int length = 8;
-    private Piece [][] m_Board;
+    private final Piece [][] m_Board;
     private boolean state;
 
 
@@ -48,7 +49,7 @@ public class Board
 
     public void movePiece(Parser movement)
     {
-        if(getBoard(movement.getParsedPosition()).isValid(this, movement.getParsedDst()))
+        if(getBoard(movement.getParsedDst()).isValid(this, movement.getParsedDst()))
         {
 
         }

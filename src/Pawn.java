@@ -6,6 +6,12 @@ public class Pawn extends Piece
         super(row, col ,color);
     }
 
+    @Override
+    public String getTitle()
+    {
+        return "Pawn";
+    }
+
     // did you kill someone? ( only in special case)
     // are you in bounds?
     // legal movement?

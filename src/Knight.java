@@ -7,8 +7,17 @@ public class Knight extends Piece
     }
 
     @Override
+    public String getTitle()
+    {
+        return "Knight";
+    }
+
+    @Override
     public boolean isValid(Board board, Position dst)
     {
+        if(!this.generalCheck(board, dst))
+            return false;
+
         if(this.pos.isOutBound())
             return false;
 
