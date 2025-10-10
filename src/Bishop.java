@@ -14,7 +14,7 @@ public class Bishop extends Piece
         if(!this.pos.didMove(dst))
         {
             return false;
-            //banana
+
         }
 
         // isDiagonal?
